@@ -9,7 +9,6 @@ namespace _3._osa
         // 1
         public static void Ruudud()
         {
-            try
             {
                 Random r = new Random();
                 int a = r.Next(1, 10);
@@ -21,8 +20,6 @@ namespace _3._osa
                 for (int i = min; i <= max; i++)
                     Console.WriteLine($"{i} → {i * i}");
             }
-            catch (Exception e)
-            { Console.WriteLine(e); }
         }
 
         // 2
@@ -58,17 +55,22 @@ namespace _3._osa
         public static void Inimesed()
         {
             Console.WriteLine("Kirjuta Nimi ja Vanus 5 inimeseid");
-            try { 
             List<Inimene> list = new List<Inimene>();
 
             for (int i = 0; i < 5; i++)
             {
-                Console.Write("Nimi: ");
-                string nimi = Console.ReadLine();
-                Console.Write("Vanus: ");
-                int vanus = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("Nimi: ");
+                    string nimi = Console.ReadLine();
+                    Console.Write("Vanus: ");
+                    int vanus = int.Parse(Console.ReadLine());
 
-                list.Add(new Inimene { Nimi = nimi, Vanus = vanus });
+                    list.Add(new Inimene { Nimi = nimi, Vanus = vanus });
+                }
+
+                catch (Exception e)
+                { Console.WriteLine(e); }
 
             }
 
@@ -80,16 +82,12 @@ namespace _3._osa
             Console.WriteLine($"Sum:{sum} Avg:{avg}");
             Console.WriteLine($"Vanim:{max.Nimi} Noorim:{min.Nimi}");
             }
-            catch (Exception e)
-            { Console.WriteLine(e); }
-        }
 
 
 
         // 4
         public static void Märksõna()
         {
-            try { 
             List<string> list = new List<string>();
             string s;
 
@@ -103,30 +101,29 @@ namespace _3._osa
 
             foreach (var x in list) Console.WriteLine(x);
             }
-            catch (Exception e)
-            { Console.WriteLine(e); }
-        }
 
         // 5
         public static void ArvaArv()
         {
             Console.WriteLine("Arva ära number vahemikus 1 kuni 100 viie katsega!");
-            try { 
             Random r = new Random();
             int arv = r.Next(1, 100);
 
             for (int i = 0; i < 5; i++)
             {
-                int g = int.Parse(Console.ReadLine());
+                try
+                {
+                    int g = int.Parse(Console.ReadLine());
+                    }
+
+                                catch (Exception e)
+                { Console.WriteLine(e); }
 
                 if (g == arv) { Console.WriteLine("Õige"); return; }
                 else if (g > arv) Console.WriteLine("Liiga suur");
                 else Console.WriteLine("Liiga väike");
             }
             Console.WriteLine($"Õige oli {arv}");
-            }
-            catch (Exception e)
-            { Console.WriteLine(e); }
         }
 
         // 6
@@ -148,59 +145,57 @@ namespace _3._osa
         // 7
         public static void Korrutustabel()
         {
-            try
             {
                 for (int i = 1; i <= 10; i++)
-            {
-                for (int j = 1; j <= 10; j++)
-                    Console.Write((i * j).ToString().PadLeft(4));
-                Console.WriteLine();
+                {
+                    for (int j = 1; j <= 10; j++)
+                        Console.Write((i * j).ToString().PadLeft(4));
+                    Console.WriteLine();
+                }
+                try
+                {
+                    Console.ReadLine();
+                }
+                catch (Exception e)
+                { Console.WriteLine(e); }
             }
-                Console.ReadLine();
-            }
-            catch (Exception e)
-            { Console.WriteLine(e); }
         }
 
         // 8
         public static void Tudengid()
         {
-            try
             {
                 List<string> n = new List<string>
         { "Andres","Mari","Jaan","Kati","Peeter","Liis","Anne","Karl","Ain","Mati" };
 
-            n[2] = "Kati";
-            n[5] = "Mati";
+                n[2] = "Kati";
+                n[5] = "Mati";
 
-            int i = 0;
-            while (i < n.Count)
-            {
-                if (n[i].StartsWith("A"))
-                    Console.WriteLine(n[i]);
-                i++;
+                int i = 0;
+                while (i < n.Count)
+                {
+                    if (n[i].StartsWith("A"))
+                        Console.WriteLine(n[i]);
+                    i++;
+                }
+                Console.WriteLine();
+                for (int j = 0; j < n.Count; j++)
+                    Console.WriteLine($"{j}:{n[j]}");
+                Console.WriteLine();
+                foreach (var x in n)
+                    Console.WriteLine(x.ToLower());
+                Console.WriteLine();
+                int k = 0;
+                do
+                {
+                    Console.WriteLine(n[k]);
+                } while (n[k++] != "Mati");
             }
-                Console.WriteLine();
-            for (int j = 0; j < n.Count; j++)
-                Console.WriteLine($"{j}:{n[j]}");
-                Console.WriteLine();
-            foreach (var x in n)
-                Console.WriteLine(x.ToLower());
-                Console.WriteLine();
-            int k = 0;
-            do
-            {
-                Console.WriteLine(n[k]);
-            } while (n[k++] != "Mati");
-            }
-            catch (Exception e)
-            { Console.WriteLine(e); }
         }
 
         // 9
         public static void ArvRud()
         {
-            try { 
             int[] a = { 2, 4, 6, 8, 10, 12 };
 
             for (int i = 0; i < a.Length; i++)
@@ -216,15 +211,11 @@ namespace _3._osa
                 i2++;
             }
             Console.WriteLine(c);
-            }
-            catch (Exception e)
-            { Console.WriteLine(e); }
         }
 
         // 10
         public static void PositivneNegativne()
         {
-            try { 
             int[] a = { 5, -3, 0, 8, -1, 4, -7, 2, 0, -5, 6, 9 };
 
             int p = 0, n = 0, z = 0;
@@ -237,15 +228,11 @@ namespace _3._osa
             }
 
             Console.WriteLine($"Pos:{p} Neg:{n} Zero:{z}");
-            }
-            catch (Exception e)
-            { Console.WriteLine(e); }
         }
 
         // 11
         public static void Keskmine()
         {
-            try { 
             Random r = new Random();
             int[] a = new int[15];
 
@@ -264,38 +251,31 @@ namespace _3._osa
                 Console.WriteLine(a[i2]);
             } while (a[i2++] >= 10 && i2 < a.Length);
             }
-            catch (Exception e)
-            { Console.WriteLine(e); }
-        }
 
         // 12
         public static void KõigeSuurem()
         {
-            try
             {
                 int[] a = { 12, 56, 78, 2, 90, 43, 88, 67 };
 
-            int max = a[0], idx = 0;
+                int max = a[0], idx = 0;
 
-            for (int i = 1; i < a.Length; i++)
-            {
-                if (a[i] > max)
+                for (int i = 1; i < a.Length; i++)
                 {
-                    max = a[i];
-                    idx = i;
+                    if (a[i] > max)
+                    {
+                        max = a[i];
+                        idx = i;
+                    }
                 }
-            }
 
-            Console.WriteLine($"Max:{max} Index:{idx}");
+                Console.WriteLine($"Max:{max} Index:{idx}");
             }
-            catch (Exception e)
-            { Console.WriteLine(e); }
         }
 
         // 13
         public static void PaariLoendused()
         {
-            try { 
             Random r = new Random();
             List<int> list = new List<int>();
 
@@ -320,8 +300,6 @@ namespace _3._osa
             }
 
             Console.WriteLine($"Even:{sumE} OddAvg:{avgO} >50:{c50}");
-                 } catch (Exception e)
-            { Console.WriteLine(e) ; }
         }
     }
 }
